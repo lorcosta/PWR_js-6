@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <title>Prove con JS</title>
+    <meta charset="utf-8">
+    <meta name="author" content="Lorenzo Costa" >
+    <script>
+      "use strict";
+      function isPariOrNot(numero){
+        return (numero%2);
+      }
+      function isIntero(numero) {
+        return(numero%1);
+      }
+    </script>
+  </head>
+  <body>
+      <h1>Pagina realizzata con JavaScript</h1>
+      <p>Autore della pagina: Lorenzo Costa</p>
+      <p>Corso di studi: Laurea Triennale in Ingengneria Gestionale dell'Informazione</p>
+      <script>
+        "use strict";
+        var numeroString, numero;
+        var invalid=true;
+        do{
+          numeroString=window.prompt("Inserire un numero","");
+          numero=Number(numeroString);
+          //Se input assume il valore null o stringa vuota allora non è
+          //stato settato perciò risulta false
+          if(!numero){
+            window.alert("Non è stato inserito alcun numero!")
+          }else if(isNaN(numero)){
+            window.alert("Inserire un numero valido!")
+          }else if(isIntero(numero)!=0){
+            window.alert("Inserire solo numeri interi, senza virgola!")
+          }else{
+            document.writeln("<p>Il valore inserito e&grave; "+numero+".<\/p>")
+            if(isPariOrNot(numero)==0){
+              document.writeln("<p>Il numero inserito e&grave; un numero pari.<\/p>")
+            }else{
+              document.writeln("Il numero inserito e&grave; un numero dispari.<\/p>")
+            }
+            invalid=false;
+          }
+        }while(invalid)
+      </script>
+  </body>
+</html>
