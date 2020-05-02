@@ -6,12 +6,12 @@
     <meta name="author" content="Lorenzo Costa" >
     <script>
       "use strict";
-      function media(numeri){
-        var somma
-        for(var x in numeri){
-          somma+=x;
-        }
-        return somma;
+      function calcolaSomma(somma_attuale,numero){
+        somma_attuale+=numero
+        return somma_attuale;
+      }
+      function calcola_media(somma_attuale, n){
+        return somma_attuale/n;
       }
     </script>
   </head>
@@ -20,33 +20,36 @@
       <p>Autore della pagina: Lorenzo Costa</p>
       <script>
         "use strict";
-      var numeri=new Array(1);
       var invalid=true;
-      var num1;
+      var num;
+      var somma=0;
+      var n=0;
       window.alert("Inserire una serie di numeri desiderata, digitare la stringa 'fine' quando non si desidera inserire ulteriori elementi")
+
       do{
-        num1=window.prompt("Inserire un numero","")
+        num=window.prompt("Inserire un numero","")
         //controllo se la stringa è fine o no
-        if(num1=='fine'){
+        if(num=='fine'){
           invalid=false;
         }else{
-          num1=Number(num1)
+          num=Number(num)
           //Se input assume il valore null o stringa vuota allora non è
           //stato settato perciò risulta false
-          if(!num1){
+          if(!num){
             window.alert("Non è stato inserito alcun numero!")
-          }else if(isNaN(num1)){
+          }else if (num == "") {
+            window.alert("(Errore - non hai inserito alcun valore)");
+          }else if(isNaN(num)){
             window.alert("Inserire un numero valido!")
           }else{
-            //aggiungo num1 alla lista dei miei numeri
-            numeri.push(num1)
+              n++;
+              somma=calcolaSomma(somma,num)
+              window.alert("L'ultimo numero introdotto è: "+num+" e la media dei numeri inseriti è: "+(somma/n))
+              document.writeln("<p>Inserito il numero "+num+"<\/p>")
           }
         }
       }while(invalid)
-      for(var x in numeri){
-        document.writeln("<p>"+(x+1)+"<\/p>")
-      }
-    //  document.writeln("<p>La media dei numeri inseriti è: "+media(numeri)+"</p>")
+      document.writeln("<p>La media dei numeri inseriti è: "+calcola_media(somma,n)+"</p>")
       </script>
   </body>
 </html>
