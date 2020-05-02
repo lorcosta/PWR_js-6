@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="it">
+  <head>
+    <title>Prove con JS</title>
+    <meta charset="utf-8">
+    <meta name="author" content="Lorenzo Costa" >
+    <script>
+      "use strict";
+      function quadrato(x){
+        return x*x;
+      }
+      function cubo(x){
+        return x*x*x;
+      }
+    </script>
+  </head>
+  <body>
+      <h1>Pagina realizzata con JavaScript</h1>
+      <p>Autore della pagina: Lorenzo Costa</p>
+      <script>
+      var num1,num2;
+      var invalid=true;
+
+      do{
+        num1=window.prompt("Inserire un numero","")
+        num1=Number(num1)
+        //Se input assume il valore null o stringa vuota allora non è
+        //stato settato perciò risulta false
+        if(!num1){
+          window.alert("Non è stato inserito alcun numero!")
+        }else if(isNaN(num1)){
+          window.alert("Inserire un numero valido!")
+        }else{
+          invalid=false;
+        }
+      }while(invalid)
+      document.writeln("<p><table border=1><tr><th>Numero: <\/th><th>Il suo quadrato: <\/th><th>Il suo cubo:<\/th><\/th>")
+      for(var i=1;i<=num1;i++){
+        document.writeln("<tr><td>"+i+"<\/td><td>"+quadrato(i)+"<\/td><td>"+cubo(i)+"<\/td><\/tr>")
+      }
+      document.writeln("</table><\/p>")
+      </script>
+  </body>
+</html>

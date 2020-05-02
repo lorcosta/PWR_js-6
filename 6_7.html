@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="it">
+  <head>
+    <title>Prove con JS</title>
+    <meta charset="utf-8">
+    <meta name="author" content="Lorenzo Costa" >
+    <script>
+      "use strict";
+      function media(numeri){
+        var somma
+        for(var x in numeri){
+          somma+=x;
+        }
+        return somma;
+      }
+    </script>
+  </head>
+  <body>
+      <h1>Pagina realizzata con JavaScript</h1>
+      <p>Autore della pagina: Lorenzo Costa</p>
+      <script>
+        "use strict";
+      var numeri=new Array(1);
+      var invalid=true;
+      var num1;
+      window.alert("Inserire una serie di numeri desiderata, digitare la stringa 'fine' quando non si desidera inserire ulteriori elementi")
+      do{
+        num1=window.prompt("Inserire un numero","")
+        //controllo se la stringa è fine o no
+        if(num1=='fine'){
+          invalid=false;
+        }else{
+          num1=Number(num1)
+          //Se input assume il valore null o stringa vuota allora non è
+          //stato settato perciò risulta false
+          if(!num1){
+            window.alert("Non è stato inserito alcun numero!")
+          }else if(isNaN(num1)){
+            window.alert("Inserire un numero valido!")
+          }else{
+            //aggiungo num1 alla lista dei miei numeri
+            numeri.push(num1)
+          }
+        }
+      }while(invalid)
+      for(var x in numeri){
+        document.writeln("<p>"+(x+1)+"<\/p>")
+      }
+    //  document.writeln("<p>La media dei numeri inseriti è: "+media(numeri)+"</p>")
+      </script>
+  </body>
+</html>

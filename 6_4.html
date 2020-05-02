@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <title>Prove con JS</title>
+    <meta charset="utf-8">
+    <meta name="author" content="Lorenzo Costa" >
+    <script>
+      "use strict";
+      function somma(x,y){
+        return x+y;
+      }
+      function sottrazione(x,y){
+        return x-y;
+      }
+    </script>
+  </head>
+  <body>
+      <h1>Pagina realizzata con JavaScript</h1>
+      <p>Autore della pagina: Lorenzo Costa</p>
+      <script>
+        "use strict";
+      var num1,num2;
+      var invalid1=true, invalid2=true,invalid=true;
+
+      do{
+        num1=window.prompt("Inserire un primo numero","")
+        num1=Number(num1)
+        //Se input assume il valore null o stringa vuota allora non è
+        //stato settato perciò risulta false
+        if(!num1){
+          window.alert("Non è stato inserito alcun numero!")
+        }else if(isNaN(num1)){
+          window.alert("Inserire un numero valido!")
+        }else{
+          invalid1=false;
+        }
+        num2=window.prompt("Inserire un secondo numero","")
+        num2=Number(num2)
+        if(!num2){
+          window.alert("Non è stato inserito alcun numero!")
+        }else if(isNaN(num2)){
+          window.alert("Inserire un numero valido!")
+        }else{
+          invalid2=false;
+        }
+        if(!invalid1 && !invalid2){
+          invalid=false;
+          document.writeln("<p><ul><li>Primo numero: "+num1+"<\/li><li>Secondo numero: "+num2+"<\/li><li>La somma vale: "+num1+"+"+num2+"="+somma(num1,num2)+"<\/li><li>La sottrazione vale: "+num1+"-"+num2+"="+sottrazione(num1,num2)+"<\/li></ul><\/p>");
+        }
+      }while(invalid)
+      </script>
+  </body>
+</html>
